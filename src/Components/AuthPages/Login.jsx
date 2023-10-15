@@ -1,13 +1,35 @@
-import React from 'react';
+import { useContext } from 'react';
 import Navbar from '../Navbar/Navbar';
+import { AuthContext } from '../../AuthContext/AuthProvider';
 
 const Login = () => {
+    const { login } = useContext(AuthContext)
     const handleLogin = e => {
         e.preventDefault()
         const form = e.target
         const email = form.email.value
         const password = form.password.value
         console.log(email, password);
+        login(email, password)
+            .then(res => {
+                console.log(res.user);
+                const user = { email, lastSignIn: res.user.metadata.lastSignInTime }
+                fetch(`http://localhost:5000/users`, {
+                    method: 'PATCH',
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(user)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                    })
+            }
+            )
+            .catch(err => {
+                console.log(err);
+            })
     }
     return (
         <div>
