@@ -3,6 +3,9 @@ import App from "../App";
 import AddCoffee from "../Components/AddCoffee/AddCoffee";
 import UpdateCoffee from "../Components/UpdateCoffee/UpdateCoffee";
 import Details from "../Components/Details/Details";
+import Login from "../Components/AuthPages/Login";
+import SignUp from "../Components/AuthPages/SignUp";
+import Users from "../Components/Users/Users";
 
 const MainRoute = createBrowserRouter([
     {
@@ -20,7 +23,16 @@ const MainRoute = createBrowserRouter([
         path: '/details/:id',
         element: <Details></Details>,
         loader: ({ params }) => fetch(`http://localhost:5000/allcoffee/${params.id}`)
-
+    }, {
+        path: '/login',
+        element: <Login></Login>
+    }, {
+        path: '/register',
+        element: <SignUp></SignUp>
+    }, {
+        path: '/users',
+        element: <Users></Users>,
+        loader: () => fetch('http://localhost:5000/users')
     }
 ])
 

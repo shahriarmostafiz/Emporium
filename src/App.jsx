@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { NavLink, useLoaderData } from 'react-router-dom'
 import CoffeeCard from './Components/CoffeCard/CoffeeCard';
+import Navbar from './Components/Navbar/Navbar';
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -10,10 +11,7 @@ function App() {
   // console.log(allcoffee);
   return (
     <div>
-      <div className='flex w-full gap-8 justify-around'>
-        <NavLink to={'/'}>Home </NavLink>
-        <NavLink to={'/addcoffee'}>Add Items </NavLink>
-      </div>
+      <Navbar></Navbar>
       <div className='flex justify-center'>
         <div className='grid md:grid-cols-2 gap-6'>
           {

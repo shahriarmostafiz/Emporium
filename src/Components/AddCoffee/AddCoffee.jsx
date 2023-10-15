@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2'
+import Navbar from '../Navbar/Navbar';
 const AddCoffee = () => {
     const handleAddCoffee = e => {
         e.preventDefault()
@@ -35,6 +36,7 @@ const AddCoffee = () => {
     }
     return (
         <div>
+            <Navbar></Navbar>
             <div className="w-full lg:w-2/3 mx-auto bg-amber-50 p-8">
                 <div className="text-center py-6 space-y-4 max-w-3xl mx-auto">
                     <h1 className="  text-6xl font-rancho">

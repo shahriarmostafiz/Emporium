@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import Navbar from "../Navbar/Navbar";
 
 const UpdateCoffee = () => {
     const thisCoffee = useLoaderData()
@@ -39,6 +40,7 @@ const UpdateCoffee = () => {
     }
     return (
         <div className="max-w-7xl mx-auto p-4">
+            <Navbar></Navbar>
             <h1 className="text-3xl text-center font-medium">
                 Updating the data of {coffeeName} </h1>
             <form onSubmit={updateInfo}>
